@@ -20,7 +20,7 @@ from collections import Counter
 
 def makeWordCloud():
 	sys_name = getpass.getuser()
-	target_file = 'wyComment2.txt'
+	target_file = 'wyComment3.txt'
 	with open(r'C:/Users/'+sys_name+'/Desktop/'+target_file,'r',encoding='utf-8') as f:
 		data = f.read()
 		pattern = re.compile(r'[\u4e00-\u9fa5a-zA-Z0-9].*')
@@ -29,7 +29,6 @@ def makeWordCloud():
 	#使用结巴分词进行中文分词
 	#jieba.add_word('白色球鞋')
 	segment = jieba.lcut(str(data))
-	print(Counter(segment)['吴佳怡'])
 	words_df = DataFrame({'segment':segment})
 	print(words_df)
 	#去掉停用词,quoting=3全不引用
